@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>Objects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Quicksand:wght@300..700&family=Saira+Stencil+One&family=Science+Gothic:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/grid.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <h1 class="hidden">FO.X Earbuds</h1>
+    <header>
+      <div class="logo">
+        <div class="col-span-full head-logo">
+          <img src="images/logo.png" alt="logo" />
+        </div>
+      </div>
+      <button id="hamburger">&#9776;</button>
+
+      <div id="menu" class="overlay">
+        <button id="close">&times;</button>
+        <nav class="head-nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="head-hero">
+        <div class="head-contain">
+          <h2>Introduce you to FO.X</h2>
+          <p>Trust us for your expereinces</p>
+        </div>
+      </section>
+
+      <section id="video">
+        <div class="deasign-head">
+          <h3>Brand New Design</h3>
+        </div>
+        <div class="col-span-full video-buds">
+          <canvas id="explode-view"></canvas>
+        </div>
+      </section>
+
+      <section>
+        <div class="product-title">
+          <h3>Brand New Design</h3>
+        </div>
+        <div class="model-3d">
+          <model-viewer
+            id="model"
+            src="model/fox_earbuds_done.glb"
+            camera-controls
+            poster="images/poster.webp"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+            tone-mapping="neutral"
+            shadow-intensity="2"
+          >
+            <button
+              class="Hotspot"
+              slot="hotspot-1"
+              data-position="-1.032297912396983m 1.8976416935366252m 1.3124851139413878m"
+              data-normal="0.2792535983105065m -0.10805175905047419m -0.9541185697787947m"
+              data-visibility-attribute="visible"
+            >
+              <div id="hotspot-1" class="HotspotAnnotation">
+                Soft Rubber
+              </div></button
+            ><button
+              class="Hotspot"
+              slot="hotspot-2"
+              data-position="0.8723323628562882m 2.0001106049901862m 0.02306852761478284m"
+              data-normal="0.5095502051395979m -0.19382003293969166m -0.8383271338048475m"
+              data-visibility-attribute="visible"
+            >
+              <div id="hotspot-2" class="HotspotAnnotation">
+                Volumn Touch Sensor
+              </div></button
+            ><button
+              class="Hotspot"
+              slot="hotspot-3"
+              data-position="0.9203826829109758m 1.9564893843637226m 1.7077413046398213m"
+              data-normal="0.5095500976277655m -0.18464730606942445m 0.8403951870214627m"
+              data-visibility-attribute="visible"
+            >
+              <div id="hotspot-3" class="HotspotAnnotation">
+                On/Off Touch Sensor
+              </div></button
+            ><button
+              class="Hotspot"
+              slot="hotspot-4"
+              data-position="1.2122958462627027m 2.194992833025285m 0.8660075925014491m"
+              data-normal="1m 0m 0m"
+              data-visibility-attribute="visible"
+            >
+              <div id="hotspot-4" class="HotspotAnnotation">
+                LED Logo
+              </div></button
+            ><button
+              class="Hotspot"
+              slot="hotspot-5"
+              data-position="1.267122222186079m 0.5402578670507054m 0.9102162685602302m"
+              data-normal="0.981802755742727m -0.07486392414607398m 0.17452432975788273m"
+              data-visibility-attribute="visible"
+            >
+              <div id="hotspot-5" class="HotspotAnnotation">
+                LED Mode
+              </div></button
+            ><button
+              class="Hotspot"
+              slot="hotspot-6"
+              data-position="0.07093845733928628m 0.03650788563925644m 1.1182297851200718m"
+              data-normal="-0.6331586110058021m -0.7715058746632545m -0.06236071414993633m"
+              data-visibility-attribute="visible"
+            >
+              <div id="hotspot-6" class="HotspotAnnotation">
+                Fast & Safe Energy Charger
+              </div>
+            </button>
+          </model-viewer>
+        </div>
+      </section>
+      <section id="xray-part">
+        <div class="col-span-full">
+          <h3>What Is Inside?</h3>
+          <div id="xray">
+            <div id="divisor"></div>
+            <input type="range" min="0" max="100" value="50" id="slider" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+    <div class="full">
+      <p>© 2025 FO.X Technologies. All rights reserved & Trust Us.</p>
+    </div>
+  </footer>
+    <!-- link to greensock main library -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+    ></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
