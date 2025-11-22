@@ -1,0 +1,245 @@
+@use "../abstracts";
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  padding-bottom: 4rem;
+  background-color: black;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 70px;
+  z-index: 1000;
+
+  .logo {
+    flex: 1;
+    padding-top: 2rem;
+
+    .head-logo {
+      img {
+        height: 40px;
+        width: auto;
+        display: block;
+      }
+    }
+  }
+
+  // Hamburger button
+  #hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: abstracts.$primary-color;
+    cursor: pointer;
+    padding: 0.5rem;
+    padding-top: 2rem;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus {
+      outline: 2px solid abstracts.$primary-color;
+      outline-offset: 4px;
+    }
+  }
+
+  // Overlay Menu
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease,
+    visibility 0.3s ease;
+    z-index: 999;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    // Close button
+    #close {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      font-size: 3rem;
+      color: abstracts.$secondary-color;
+      cursor: pointer;
+      line-height: 1;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: rotate(90deg);
+      }
+
+      &:focus {
+        outline: 2px solid abstracts.$secondary-color;
+        outline-offset: 4px;
+      }
+    }
+
+    .overlay.open {
+    display: flex;
+  } 
+
+  .overlay ul {
+    list-style-type: none;
+    text-align: center;
+  }
+
+  .overlay li {
+    margin: 20px 0;
+  }
+
+  .overlay a {
+    color: white;
+    font-size: 32px;
+    text-decoration: none;
+  }
+    // Navigation
+    .head-nav {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+
+        li {
+          margin: 2rem 0;
+
+          a {
+            color: abstracts.$secondary-color;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            position: relative;
+            transition: color 0.3s ease;
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              width: 0;
+              height: 2px;
+              background-color: abstracts.$secondary-color;
+              transition: width 0.3s ease,
+                left 0.3s ease;
+            }
+
+            &:hover {
+              color: rgba(abstracts.$secondary-color, 0.8);
+
+              &::after {
+                width: 100%;
+                left: 0;
+              }
+            }
+
+            &:focus {
+              outline: 2px solid abstracts.$secondary-color;
+              outline-offset: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Tablet styles
+@media (min-width: 768px) {
+  header {
+    padding: 1rem 2rem;
+
+    #hamburger {
+      display: none;
+    }
+
+    .overlay {
+      position: static;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      opacity: 1;
+      visibility: visible;
+
+      #close {
+        display: none;
+      }
+
+      .head-nav {
+        ul {
+          display: flex;
+          gap: 1rem;
+
+          li {
+            margin: 0;
+
+            a {
+              font-size: 1rem;
+              color: abstracts.$primary-color;
+
+              &::after {
+                background-color: abstracts.$primary-color;
+              }
+
+              &:hover {
+                color: rgba(abstracts.$primary-color, 0.7);
+              }
+
+              &:focus {
+                outline-color: abstracts.$primary-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Desktop styles
+@media (min-width: 1024px) {
+  header {
+    .head-logo {
+      height: 100%;
+      width: 100%;
+      padding: 3rem;
+    }
+    padding: 5rem 4rem;
+
+    .overlay {
+      .head-nav {
+        ul {
+          gap: 2rem;
+
+          li {
+            a {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

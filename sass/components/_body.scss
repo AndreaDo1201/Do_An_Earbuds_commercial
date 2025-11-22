@@ -1,0 +1,25 @@
+.video-buds {
+    #explode-view {
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-left: 24px;
+        width: 100%;
+        max-width: 600px;
+        height: 400px;
+        @media screen and (min-width: 1200px) {
+            max-width: 84rem;
+            height: 56rem;
+            margin-left: 20rem;
+         }
+         @media screen and (min-width: 768px) {
+            max-width: 40rem;
+            height: 30rem;
+            margin-left: 20rem;
+            margin-bottom: -20rem;
+         }
+    }
+}
+
+#full-view h3 {
+    margin-left: 3px;
+}
