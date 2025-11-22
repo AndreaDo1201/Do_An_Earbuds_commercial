@@ -1,0 +1,44 @@
+@use '../abstracts';
+
+body {
+  font-family: "Saira Stencil One", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+p { 
+  font-size: 25px;
+  color:white;
+  @media screen and (min-width: 1200px) {
+    font-size: 120px;
+    padding-bottom: 80rem;
+  }
+}
+
+h2 {
+  font-size: 70px;
+  color: abstracts.$primary-color;
+  @media screen and (min-width: 1200px) {
+    font-size: 240px;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: -30rem;
+  }
+  
+}
+
+h3 {
+  font-size: 50px;
+  color: abstracts.$primary-color;
+  margin-left: 90px;
+  @media screen and (min-width: 1200px) {
+    font-size: 110px;
+    margin-left: 30rem;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 80px;
+    margin-left: 15rem;
+  }
+}
